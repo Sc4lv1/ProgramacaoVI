@@ -2,13 +2,13 @@ import { Conta } from "./conta.js";
 import { Pessoa } from "./pessoa.js";
 
 
-
+/*
 try {
   pessoa1.VerificaIdade();
   pessoa2.VerificaIdade();
 } catch (error) {
   console.log(error);
-}
+}*/
 let pessoa1 = new Pessoa("Vicenzo Scalvi");
 let pessoa2 = new Pessoa("Pamela Stieven");
 let conta1 = new Conta("Vicenzo Scalvi");

@@ -1,7 +1,8 @@
 export class Conta {
-  constructor(titular) {
-    this.titular = titular;
+  constructor(pessoa) {
+    this.pessoa = pessoa;
     this.saldo = 0;
+    this.historico = [];
   }
   depositar(valor) {
     if (valor <= 0) {
@@ -9,6 +10,7 @@ export class Conta {
     } else {
       this.saldo += valor;
     }
+    this.historico.push("Depositar: + R$" + valor.toFixed(2));
   }
 
   sacar(valor) {
@@ -17,6 +19,7 @@ export class Conta {
     }
 
     this.saldo -= valor;
+    this.historico.push("Sacar: - R$" + valor.toFixed(2));
   }
 
   transferir(outraConta, valor) {
@@ -25,10 +28,30 @@ export class Conta {
     } else {
       this.sacar(valor);
       outraConta.depositar(valor);
+      
+
+      this.historico[this.historico.length - 1] = "Transferencia enviar de " + outraConta.pessoa.nome +": - R$ " + valor.toFixed(2);
+
+      outraConta.historico[this.historico.length - 1] = "Transferencia receida de " + this.pessoa.nome + ": +R$ " + valor.toFixed(2);
     }
   }
-}
 
+  exibirSaldo(){
+    console.log(this.pessoa.nome +" - Saldo: R$"+this.saldo);
+  }
+
+  exibirHistórico(){
+    console.log(" --- Histórico de "+this.pessoa.nome + " --- ")
+    if(this.historico.length ===0){
+      console.log(" Nenhuma operação realizada");
+    }else{
+      for(let operacao in this.historico){
+        console.log(" "+this.historico[operacao]);
+      }
+    }
+    console.log(" Saldo Atual: R$"+this.saldo.toFixed(2));
+  }
+}
 /*
 
 
