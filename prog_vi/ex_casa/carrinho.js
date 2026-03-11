@@ -11,7 +11,7 @@ export class Carrinho{
     calcularTotal(){
       let total = 0;
         for(let i in this.itens){
-          total+= this.itens[i];
+          total+= this.itens[i].preco;
           return total;
         }
     }
@@ -20,7 +20,7 @@ export class Carrinho{
       console.log("Cliente: "+this.cliente.nome);
         console.log("Telefone: "+this.cliente.telefone);
         for(let i in this.itens){
-          console.log(produto.nome + " - R$"+ produto.preco)
+          console.log(this.itens[i].nome + " - R$"+ this.itens[i].preco)
         }
         console.log("Total: R$"+ this.calcularTotal().toFixed(2))
       
