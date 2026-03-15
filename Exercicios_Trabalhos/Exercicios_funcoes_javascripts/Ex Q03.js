@@ -8,7 +8,7 @@ var pares = valores.filter(mostraPares);
 
 console.log("Os números pares são: ");
 for(var i = 0; i<pares.length; i++){
-console.log("\t" + pares[i]);
+console.log("\t Valor " +[i]+": " + pares[i]);
 }
 
 
